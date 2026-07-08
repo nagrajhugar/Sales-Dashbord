@@ -2,7 +2,8 @@
 
 A clean, single-page dashboard for tracking **Revenue**, **Orders**, and **Average Order Value (AOV)**, with filters by region and category.
 
-![Sales Dashboard preview](screenshot.png)
+![Sales Dashboard preview](<img width="1366" height="768" alt="Screenshot (1)" src="https://github.com/user-attachments/assets/425c6644-a3cf-492e-b461-ca20686207a6" />
+)
 
 ## Run it in VS Code
 
