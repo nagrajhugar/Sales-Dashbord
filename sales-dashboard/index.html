@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Dashboard</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%234F46E5'/%3E%3Cpath d='M6 16l3-6 3 3 4-7 2 3' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Header -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <h1>Sales Dashboard</h1>
+    </div>
+    <div class="range-presets" id="rangePresets">
+      <button class="preset active" data-days="30">30d</button>
+      <button class="preset" data-days="90">90d</button>
+      <button class="preset" data-days="365">1y</button>
+      <button class="preset" data-days="all">All</button>
+    </div>
+  </header>
+
+  <!-- Filters -->
+  <section class="filters">
+    <div class="filter-group">
+      <label>Region</label>
+      <div class="chip-select" id="regionSelect"></div>
+    </div>
+    <div class="filter-group">
+      <label>Category</label>
+      <div class="chip-select" id="categorySelect"></div>
+    </div>
+    <button class="reset-btn" id="resetFilters">Reset filters</button>
+  </section>
+
+  <!-- KPI cards -->
+  <section class="kpis">
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <span class="kpi-label">Revenue</span>
+        <span class="kpi-delta" id="revenueDelta">—</span>
+      </div>
+      <div class="kpi-value" id="revenueValue">—</div>
+      <svg class="sparkline" id="revenueSpark" viewBox="0 0 240 48" preserveAspectRatio="none"></svg>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <span class="kpi-label">Orders</span>
+        <span class="kpi-delta" id="ordersDelta">—</span>
+      </div>
+      <div class="kpi-value" id="ordersValue">—</div>
+      <svg class="sparkline" id="ordersSpark" viewBox="0 0 240 48" preserveAspectRatio="none"></svg>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-top">
+        <span class="kpi-label">Avg. Order Value</span>
+        <span class="kpi-delta" id="aovDelta">—</span>
+      </div>
+      <div class="kpi-value" id="aovValue">—</div>
+      <svg class="sparkline" id="aovSpark" viewBox="0 0 240 48" preserveAspectRatio="none"></svg>
+    </div>
+  </section>
+
+  <!-- Category snapshot -->
+  <section class="category-snapshot" id="categorySnapshot"></section>
+
+  <!-- Charts -->
+  <section class="charts">
+    <div class="chart-card wide">
+      <div class="chart-head">
+        <h2>Revenue trend</h2>
+        <span class="chart-sub" id="trendSub"></span>
+      </div>
+      <canvas id="trendChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-head">
+        <h2>Orders by category</h2>
+      </div>
+      <canvas id="categoryChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-head">
+        <h2>Revenue by region</h2>
+      </div>
+      <canvas id="regionChart"></canvas>
+    </div>
+  </section>
+
+  <p class="empty-state" id="emptyState" hidden>No data matches the selected filters. Try clearing one.</p>
+
+</div>
+
+<script src="vendor/chart.umd.min.js"></script>
+<script src="icons.js"></script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
